@@ -41,7 +41,7 @@ class NOAASpaceWeatherProxy : ISpaceWeatherProxy {
     ): List<SpaceWeatherNotification> {
         return NotificationMerger.merge(notifications).filter {
             if (it is SpaceWeatherWarning) {
-                it.validFrom.isBefore(time) && it.validTo.isAfter(time)
+                it.validTo.isAfter(time)
             } else {
                 it.issueTime >= time.minusDays(1)
             }

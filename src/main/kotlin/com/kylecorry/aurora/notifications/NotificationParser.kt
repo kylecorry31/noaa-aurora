@@ -39,7 +39,7 @@ internal object NotificationParser {
         val issueTime = parseTime(getLine(lines, "Issue Time")!!)!!
         val title = getLine(lines, "Warning", "Extended Warning", "Cancel Warning")!!
         val validFrom = getLine(lines, "Valid From")?.let { parseTime(it) } ?: issueTime
-        val validTo = getLine(lines, "Valid To", "New Valid Until")?.let { parseTime(it) } ?: issueTime
+        val validTo = getLine(lines, "Valid To", "Now Valid Until")?.let { parseTime(it) } ?: issueTime
         val warningCondition = getLine(lines, "Warning Condition")
         val extensionOf = getLine(lines, "Extension to Serial Number")?.toLongOrNull()
         val cancellationOf = getLine(lines, "Cancel Serial Number")?.toLongOrNull()
