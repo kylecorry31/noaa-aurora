@@ -11,4 +11,5 @@ data class SpaceWeatherAlert(
     override val potentialImpacts: String?,
     override val message: String,
     val continuationOf: Long? = null,
+    val cancellationOf: Long? = null,
 ) : SpaceWeatherNotification
