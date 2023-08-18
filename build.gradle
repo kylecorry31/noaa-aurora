@@ -34,7 +34,7 @@ publishing {
         gpr(MavenPublication) {
             groupId = group.toString()
             artifactId = 'noaa-aurora'
-            version = version
+            version = System.getenv("VERSION_OVERRIDE") ?: version
             from(components.java)
         }
     }
