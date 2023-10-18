@@ -73,7 +73,8 @@ internal object NotificationParser {
         val serialNumber = getLine(lines, "Serial Number")!!.toLong()
         val messageCode = getLine(lines, "Space Weather Message Code")!!
         val issueTime = parseTime(getLine(lines, "Issue Time")!!)!!
-        val title = getLine(lines, "Watch")!!
+        val title = getLine(lines, "Watch", "Cancel Watch")!!
+        val cancellationOf = getLine(lines, "Cancel Serial Number")?.toLongOrNull()
 
         val potentialImpactsIndex = notification.message.indexOf("Potential Impacts: ")
         val potentialImpacts = if (potentialImpactsIndex != -1) {
@@ -89,7 +90,8 @@ internal object NotificationParser {
             issueTime,
             title,
             potentialImpacts,
-            notification.message
+            notification.message,
+            cancellationOf
         )
     }
 

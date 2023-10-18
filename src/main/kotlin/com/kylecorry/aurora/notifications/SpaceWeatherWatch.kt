@@ -9,6 +9,7 @@ data class SpaceWeatherWatch(
     override val issueTime: ZonedDateTime,
     override val title: String,
     override val potentialImpacts: String?,
-    override val message: String
+    override val message: String,
+    val cancellationOf: Long? = null
 ) : SpaceWeatherNotification {
 }

@@ -35,6 +35,14 @@ internal object NotificationMerger {
                 }
             }
 
+            if (notification is SpaceWeatherWatch){
+                // Check if it cancels a previous warning
+                if (notification.cancellationOf != null) {
+                    merged.removeIf { it.serialNumber == notification.cancellationOf }
+                    processed = true
+                }
+            }
+
             if (!processed) {
                 merged.add(notification)
             }
